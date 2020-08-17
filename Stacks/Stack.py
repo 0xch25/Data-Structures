@@ -1,8 +1,11 @@
 '''implementation of Stack [FIFO] using simple Arrays(push,pop,display,top)'''
+
+
 class Stack:
     def __init__(self):
         self.items = []
 
+    # push to insert an element
     def push(self, item):
         self.items.append(item)
 
