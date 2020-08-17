@@ -21,12 +21,15 @@ class Stack:
     def top(self):
         if not self.is_empty():
             return self.items[-1]
+    def min_ele(self):
+        return min(self.items)
 
 
 s = Stack()
 s.push(5)
 s.push(4)
 s.push(3)
+print(s.min_ele())
 print(s.display())
 s.pop()
 print(s.display())
