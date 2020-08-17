@@ -1,7 +1,6 @@
 """
 Implementation of Infix to postfix conversion
 
-Author: Jayesh Chandrapal
 """
 
 
