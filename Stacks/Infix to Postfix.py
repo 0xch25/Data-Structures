@@ -48,33 +48,33 @@ def convert(expression):
 
 def __convert(tokens):
     postfix = []
-    opstack = Stack()
+    s = Stack()
 
     for token in tokens:
         if token.isidentifier():
             postfix.append(token)
         elif token == '(':
-            opstack.push(token)
+            s.push(token)
         elif token == ')':
             while True:
-                temp = opstack.pop()
+                temp = s.pop()
                 if temp is None or temp == '(':
                     break
                 elif not temp.isidentifier():
                     postfix.append(temp)
 
         else:  # must be operator
-            if not opstack.empty():
-                temp = opstack.peek()
+            if not s.empty():
+                temp = s.peek()
 
-                while not opstack.empty() and precedence[temp] >= precedence[token] and token.isidentifier():
-                    postfix.append(opstack.pop())
-                    temp = opstack.peek()
+                while not s.empty() and precedence[temp] >= precedence[token] and token.isidentifier():
+                    postfix.append(s.pop())
+                    temp = s.peek()
 
-            opstack.push(token)
+            s.push(token)
 
-    while not opstack.empty():
-        postfix.append(opstack.pop())
+    while not s.empty():
+        postfix.append(s.pop())
 
     return postfix
 
