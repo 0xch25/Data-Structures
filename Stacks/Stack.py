@@ -1,4 +1,4 @@
-'''implementation of Stack [FIFO] using simple Arrays(push,pop,display,top)'''
+'''implementation of Stack [LIFO] using simple Arrays(push,pop,display,top)'''
 
 
 class Stack:
