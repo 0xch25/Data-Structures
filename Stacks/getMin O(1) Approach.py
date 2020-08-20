@@ -15,7 +15,8 @@ class Stack:
                 stk.append(data)
     def pop(self):
         x=stk.pop()
-        minstk.pop()
+        if x==minstk[-1]:
+            minstk.pop()
         return x
     def getMin(self):
         return minstk[-1]
