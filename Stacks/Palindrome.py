@@ -1,3 +1,4 @@
+'''Program to check weather the given string is palindrome or not (without using Stacks)'''
 def palindrome(str):
     n = len(str) - 1
     x = int(n / 2)
