@@ -52,7 +52,7 @@ class LinkedList:
             last=last.next
         return last.data
 
-    def print(self):
+    def print(self,head):
         current = self.head
         while current:
             print(current.data,end=' ')
@@ -127,29 +127,57 @@ class LinkedList:
             return temp
 
 
+
 L = LinkedList()
 L.insert(3)
 L.insert(4)
 L.insert(5)
 L.insert(6)
-L.print()
+L.print(L.head)
 L.insertFront(1)
-L.print()
+L.print(L.head)
 L.insertAfter(L.head,2)
-L.print()
+L.print(L.head)
 L.insertAfter(L.head.next.next.next.next.next,7)
-L.print()
+L.print(L.head)
 L.insertAtEnd(8)
-L.print()
+L.print(L.head)
 print("The length of the Linked List is:",L.length())
 print("The tail Node is:",L.tail())
 print("The value at given index is:",L.getByIndex(4))
 L.addAtIndex(4,10)
-L.print()
+L.print(L.head)
 print("The length of the Linked List is:",L.length())
 print("The node deleted at given index is:",L.DeleteAtIndex(4))
-L.print()
+L.print(L.head)
 L.addAtIndex(6,10)
-L.print()
+L.print(L.head)
 
 
+'''
+OUTPUT:
+newnode inserted: 3
+newnode inserted: 4
+newnode inserted: 5
+newnode inserted: 6
+3 4 5 6 
+node inserted at front: 1
+1 3 4 5 6 
+the node inserted after given node 1  is :2
+1 2 3 4 5 6 
+the node inserted after given node 6  is :7
+1 2 3 4 5 6 7 
+Node inserted at End is: 8
+1 2 3 4 5 6 7 8 
+The length of the Linked List is: 8
+The tail Node is: 8
+The value at given index is: 5
+The node inserted at given index 4 is 10
+1 2 3 4 10 5 6 7 8 
+The length of the Linked List is: 9
+The node deleted at given index is: 10
+1 2 3 4 5 6 7 8 
+The node inserted at given index 6 is 10
+1 2 3 4 5 6 10 7 8 
+
+'''
