@@ -47,7 +47,6 @@ class LinkedList:
                     print("%d is greater than the no. of nodes in list"%(n))
                 ref_ptr = ref_ptr.next
                 count += 1
-
         while (ref_ptr is not None):
             main_ptr = main_ptr.next
             ref_ptr = ref_ptr.next
