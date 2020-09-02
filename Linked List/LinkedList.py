@@ -1,4 +1,17 @@
-
+'''
+Linked List Implementation
+The Class Linked List contains the following functions:
+    1.insert(): inserts the Node into the linked list
+    2.insertFront(): insert the node at front i.e Head
+    3.insertAfter(): insert the node after the given value
+    4.insertAtEnd(): used to insert at the end of the Linked List
+    5.tail(): returns the last node value
+    6.print(): prints the Linked list in a single line
+    7.length(): returns the length of the linked list
+    8.getByIndex(): returns the value at the given indexed node
+    9.addAtIndex(): add node at specified index position
+    10.DeleteAtIndex(): Delete the Node at specified index
+'''
 class Node:
     def __init__(self, data=None, next=None):
         self.data = data
