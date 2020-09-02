@@ -11,7 +11,7 @@ def getIntersectionNode(headA,headB):
         headB = headB.next
     return None
 
-''''''
+'''
 #Approach2:Optimized Version
 
     def getIntersectionNode1(headA,headB):
@@ -42,3 +42,4 @@ def getIntersectionNode(headA,headB):
             headA = headA.next
             headB = headB.next
         return None
+'''

@@ -81,22 +81,15 @@ class LinkedList:
         return count
 
     def getByIndex(self,index):
-        if index<0 and index>self.length():
-            return -1
-        else:
-            if index==0:
-                return self.head.data
-            elif index==self.length()-1:
-                return self.tail()
-            else:
-                cur=self.head
-                count=0
-                while(cur):
-                    if count==index:
-                        return cur.data
-                    cur=cur.next
-                    count+=1
-                return -1
+        current = self.head
+        count = 0
+
+        while current:
+            if count == index:
+                return current.data
+            count += 1
+            current = current.next
+
 
     def addAtIndex(self,index,data):
         newnode=Node(data)
