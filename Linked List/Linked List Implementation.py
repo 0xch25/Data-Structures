@@ -65,7 +65,6 @@ class LinkedList:
         while(cur):
             cur=cur.next
             count+=1
-        print("The Length Of Linked List is:",count)
         return count
 
     def getByIndex(self,index):
@@ -86,6 +85,46 @@ class LinkedList:
                     count+=1
                 return -1
 
+    def addAtIndex(self,index,data):
+        newnode=Node(data)
+        if index==0:
+            self.insertFront(data)
+        elif index==self.length()-1:
+            self.insertAtEnd(data)
+        else:
+            current = 0
+            prev = None
+            node = self.head
+            newNode = Node(data)
+            while current != index and node.next != None:
+                prev = node
+                node = node.next
+                current += 1
+            if current == index:
+                prev.next = newNode
+                newNode.next = node
+            else:
+                return -1
+        print("The node inserted at given index {} is {}".format(index,data))
+
+    def DeleteAtIndex(self,index):
+        if index==0:
+            temp=self.head.data
+            Newhead=self.head.next
+            self.head=Newhead
+            return temp
+        else:
+            node=self.head
+            cur=0
+            prev=None
+            while cur!=index and node.next:
+                prev=node
+                node=node.next
+                temp=node.data
+                cur+=1
+            if cur==index:
+                prev.next=node.next
+            return temp
 
 
 L = LinkedList()
@@ -102,6 +141,15 @@ L.insertAfter(L.head.next.next.next.next.next,7)
 L.print()
 L.insertAtEnd(8)
 L.print()
-L.length()
+print("The length of the Linked List is:",L.length())
 print("The tail Node is:",L.tail())
 print("The value at given index is:",L.getByIndex(4))
+L.addAtIndex(4,10)
+L.print()
+print("The length of the Linked List is:",L.length())
+print("The node deleted at given index is:",L.DeleteAtIndex(4))
+L.print()
+L.addAtIndex(6,10)
+L.print()
+
+
