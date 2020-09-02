@@ -46,12 +46,46 @@ class LinkedList:
         last.next = new_node
         print("Node inserted at End is:",new_node.data)
 
+    def tail(self):
+        last=self.head
+        while last.next:
+            last=last.next
+        return last.data
+
     def print(self):
         current = self.head
         while current:
             print(current.data,end=' ')
             current = current.next
         print()
+
+    def length(self):
+        count=0
+        cur=self.head
+        while(cur):
+            cur=cur.next
+            count+=1
+        print("The Length Of Linked List is:",count)
+        return count
+
+    def getByIndex(self,index):
+        if index<0 and index>self.length():
+            return -1
+        else:
+            if index==0:
+                return self.head.data
+            elif index==self.length()-1:
+                return self.tail()
+            else:
+                cur=self.head
+                count=0
+                while(cur):
+                    if count==index:
+                        return cur.data
+                    cur=cur.next
+                    count+=1
+                return -1
+
 
 
 L = LinkedList()
@@ -68,3 +102,6 @@ L.insertAfter(L.head.next.next.next.next.next,7)
 L.print()
 L.insertAtEnd(8)
 L.print()
+L.length()
+print("The tail Node is:",L.tail())
+print("The value at given index is:",L.getByIndex(4))
