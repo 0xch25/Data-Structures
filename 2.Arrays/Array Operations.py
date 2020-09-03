@@ -1,4 +1,4 @@
-'''we can implement Arrays using Array module which is an inbuilt function in python or we can use List for basic Operations'''
+'''we can implement 2.Arrays using Array module which is an inbuilt function in python or we can use List for basic Operations'''
 from array import *  # import the function with all the operation
 
 vals = array('i', [])  # i=element type i.e Integer

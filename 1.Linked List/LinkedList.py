@@ -1,10 +1,10 @@
 '''
-Linked List Implementation
-The Class Linked List contains the following functions:
+1.Linked List Implementation
+The Class 1.Linked List contains the following functions:
     1.insert(): inserts the Node into the linked list
     2.insertFront(): insert the node at front i.e Head
     3.insertAfter(): insert the node after the given value
-    4.insertAtEnd(): used to insert at the end of the Linked List
+    4.insertAtEnd(): used to insert at the end of the 1.Linked List
     5.tail(): returns the last node value
     6.print(): prints the Linked list in a single line
     7.length(): returns the length of the linked list
@@ -150,12 +150,12 @@ L.insertAfter(L.head.next.next.next.next.next,7)
 L.print(L.head)
 L.insertAtEnd(8)
 L.print(L.head)
-print("The length of the Linked List is:",L.length())
+print("The length of the 1.Linked List is:",L.length())
 print("The tail Node is:",L.tail())
 print("The value at given index is:",L.getByIndex(4))
 L.addAtIndex(4,10)
 L.print(L.head)
-print("The length of the Linked List is:",L.length())
+print("The length of the 1.Linked List is:",L.length())
 print("The node deleted at given index is:",L.DeleteAtIndex(4))
 L.print(L.head)
 L.addAtIndex(6,10)
@@ -177,12 +177,12 @@ the node inserted after given node 6  is :7
 1 2 3 4 5 6 7 
 Node inserted at End is: 8
 1 2 3 4 5 6 7 8 
-The length of the Linked List is: 8
+The length of the 1.Linked List is: 8
 The tail Node is: 8
 The value at given index is: 5
 The node inserted at given index 4 is 10
 1 2 3 4 10 5 6 7 8 
-The length of the Linked List is: 9
+The length of the 1.Linked List is: 9
 The node deleted at given index is: 10
 1 2 3 4 5 6 7 8 
 The node inserted at given index 6 is 10
