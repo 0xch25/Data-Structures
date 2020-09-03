@@ -67,6 +67,8 @@ class LinkedList:
 
     def print(self,head):
         current = self.head
+        if head==None:
+            print("Empty List")
         while current:
             print(current.data,end=' ')
             current = current.next
