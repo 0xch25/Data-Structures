@@ -1,5 +1,7 @@
-#Write a Function to find the node at which the intersection of two singly linked lists begins
-#Approach1:using Dictionaries
+'''
+Write a Function to find the node at which the intersection of two singly linked lists begins
+Approach1:using Dictionaries
+
 def getIntersectionNode(headA,headB):
     dict = {}
     while headA:
@@ -42,4 +44,3 @@ def getIntersectionNode(headA,headB):
             headA = headA.next
             headB = headB.next
         return None
-'''

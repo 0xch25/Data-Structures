@@ -1,6 +1,6 @@
 '''
-1.Linked List Implementation
-The Class 1.Linked List contains the following functions:
+Linked List Implementation
+The Class Linked List contains the following functions:
     1.insert(): inserts the Node into the linked list
     2.insertFront(): insert the node at front i.e Head
     3.insertAfter(): insert the node after the given value

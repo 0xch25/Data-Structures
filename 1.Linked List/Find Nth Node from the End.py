@@ -1,5 +1,5 @@
 '''
-program to find the Nth Node from The End of 1.Linked List
+program to find the Nth Node from The End of Linked List
 '''
 class Node:
     def __init__(self, data=None, next=None):
