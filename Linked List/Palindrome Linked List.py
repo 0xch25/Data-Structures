@@ -1,11 +1,15 @@
 '''
-Remove all elements from a linked list of integers that have value val.
+Given a singly linked list, determine if it is a palindrome.
+Example 1:
+Input: 1->2
+Output: false
+Example 2:
+Input: 1->2->2->1
+Output: true
 
-Example:
 
-Input:  1->2->6->3->4->5->6, val = 6
-Output: 1->2->3->4->5
 '''
+
 class Node:
     def __init__(self, data=None, next=None):
         self.data = data
@@ -28,34 +32,37 @@ class LinkedList:
 
     def print(self,head):
         current = self.head
-        if head==None:
+        if self.head is None:
             print("Empty List")
         while current:
             print(current.data,end=' ')
             current = current.next
         print()
 
-    def RemoveEle(self,ele):
-        while self.head and self.head.data == ele:
-            self.head = self.head.next
-        curr = self.head
-        prev = curr
-        while curr:
-            if curr.data == ele:
-                prev.next = curr.next
-            else:
-                prev = curr
-            curr = curr.next
-        return self.head
-
+    def palindrome(self,head):
+        fast = slow = head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+        node = None
+        while slow:
+            nxt = slow.next
+            slow.next = node
+            node = slow
+            slow = nxt
+        while node:
+            if node.data != head.data:
+                return False
+            node = node.next
+            head = head.next
+        return True
 
 L = LinkedList()
-L.insert(3)
-L.insert(4)
+L.insert(1)
 L.insert(2)
-L.insert(0)
-L.insert(4)
-L.insert(5)
+L.insert(2)
+L.insert(1)
+#L.insert(4)
+#L.insert(5)
 L.print(L.head)
-L.RemoveEle(4)
-L.print(L.head)
+print(L.palindrome(L.head))
