@@ -16,31 +16,31 @@ def getIntersectionNode(headA,headB):
 '''
 #Approach2:Optimized Version
 
-    def getIntersectionNode1(headA,headB):
-        tempA = headA
-        lenA = 0
-        while (tempA):
-            lenA += 1
-            tempA = tempA.next
+def getIntersectionNode1(headA,headB):
+    tempA = headA
+    lenA = 0
+    while (tempA):
+        lenA += 1
+        tempA = tempA.next
 
-        tempB = headB
-        lenB = 0
-        while (tempB):
-            lenB += 1
-            tempB = tempB.next
+    tempB = headB
+    lenB = 0
+    while (tempB):
+        lenB += 1
+        tempB = tempB.next
 
-        if lenA > lenB:
-            while (lenA != lenB):
-                headA = headA.next
-                lenA -= 1
-        if lenA < lenB:
-            while (lenA != lenB):
-                headB = headB.next
-                lenB -= 1
-
-        while (headA and headB):
-            if headA == headB:
-                return headA
+    if lenA > lenB:
+        while (lenA != lenB):
             headA = headA.next
+            lenA -= 1
+    if lenA < lenB:
+        while (lenA != lenB):
             headB = headB.next
-        return None
+            lenB -= 1
+
+    while (headA and headB):
+        if headA == headB:
+            return headA
+        headA = headA.next
+        headB = headB.next
+    return None
