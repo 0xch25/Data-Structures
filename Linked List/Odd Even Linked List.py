@@ -1,10 +1,10 @@
 '''
-Remove all elements from a linked list of integers that have value val.
+Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
+You should try to do it in-place. The program should run in O(1) space complexity and O(nodes) time complexity.
+Example 1:
+Input: 1->2->3->4->5->NULL
+Output: 1->3->5->2->4->NULL
 
-Example:
-
-Input:  1->2->6->3->4->5->6, val = 6
-Output: 1->2->3->4->5
 '''
 class Node:
     def __init__(self, data=None, next=None):
@@ -35,19 +35,19 @@ class LinkedList:
             current = current.next
         print()
 
-    def RemoveEle(self,ele):
-        while self.head and self.head.data == ele:
-            self.head = self.head.next
-        curr = self.head
-        prev = curr
-        while curr:
-            if curr.data == ele:
-                prev.next = curr.next
-            else:
-                prev = curr
-            curr = curr.next
-        return self.head
-
+    def oddEven(self,head):
+        if not head:
+            return head
+        odd = head
+        even = head.next
+        evenHead = even
+        while even and odd and even.next and odd.next:
+            odd.next = even.next
+            odd = odd.next
+            even.next = odd.next
+            even = even.next
+        odd.next = evenHead
+        return head
 
 L = LinkedList()
 L.insert(3)
@@ -57,5 +57,5 @@ L.insert(0)
 L.insert(4)
 L.insert(5)
 L.print(L.head)
-L.RemoveEle(4)
+L.oddEven(L.head)
 L.print(L.head)
