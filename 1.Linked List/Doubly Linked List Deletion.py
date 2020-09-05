@@ -1,6 +1,6 @@
 '''
 Implementation of Doubly Linked List Delete Operation
-Reference: https://www.geeksforgeeks.org/delete-a-node-in-a-doubly-linked-list/
+Reference: https://www.geeksforgeeks.org/delete-a-node-in-a-doubly-linked-list
 '''
 class Node:
 
