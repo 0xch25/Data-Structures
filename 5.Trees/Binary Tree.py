@@ -1,50 +1,94 @@
 '''
-Implementation of Binary Tree Using Linked list
+Implementation of Binary Tree and its Operations
 '''
 class Node:
-    def __init__(self,data):
-        self.left=None
-        self.right=None
-        self.data=data
+    def __init__(self, key): 
+        self.key = key  
+        self.left = None
+        self.right = None
 
-    def insert(self, data):
-        if self.data:
-            if data < self.data:
-                if self.left is None:
-                    self.left = Node(data)
-                else:
-                    self.left.insert(data)
-            elif data > self.data:
-                if self.right is None:
-                    self.right = Node(data)
-                else:
-                    self.right.insert(data)
-        else:
-            self.data = data
+def insert(node, key):
+    if node is None:
+        return Node(key) 
+    if key < node.key:
+        node.left = insert(node.left, key) 
+    else: 
+        node.right = insert(node.right, key) 
+    return node
 
-    def PrintTree(self):
-        if self.left:
-            self.left.PrintTree()
-        print( self.data,end=' ')
-        if self.right:
-            self.right.PrintTree()
+def inorder(root):
+    if root is not None:
+        inorder(root.left)
+        print(root.key,end=' ')
+        inorder(root.right)
 
-# Use the insert method to add nodes
-root = Node(12)
-root.insert(6)
-root.insert(14)
-root.insert(3)
-root.insert(0)
-root.insert(20)
-root.insert(25)
-root.PrintTree()
+def minValueNode(node):
+    current = node 
+    while(current.left is not None):
+        current = current.left  
+    return current
 
-'''
-Output:
-0 3 6 12 14 20 25
- 
-i.e        12
-        6     14
-      3          20
-    0               25
-'''
+def deleteNode(root, key):
+    if root is None:
+        return root  
+    if key < root.key:
+        root.left = deleteNode(root.left, key) 
+    elif(key > root.key):
+        root.right = deleteNode(root.right, key) 
+    else:
+        if root.left is None :
+            temp = root.right  
+            root = None 
+            return temp  
+              
+        elif root.right is None : 
+            temp = root.left  
+            root = None
+            return temp 
+        temp = minValueNode(root.right)
+        root.key = temp.key
+        root.right = deleteNode(root.right , temp.key)
+    return root
+
+def PrintTree(root):
+    if root.left:
+        PrintTree(root.left)
+    print(root.key,end=' ')
+    if root.right:
+        PrintTree(root.right)
+    print(" ")
+""" Let us create following BST 
+              50 
+           /     \ 
+          30      70 
+         /  \    /  \ 
+       20   40  60   80 """
+  
+root = None
+root = insert(root, 50) 
+root = insert(root, 30) 
+root = insert(root, 20) 
+root = insert(root, 40) 
+root = insert(root, 70) 
+root = insert(root, 60) 
+root = insert(root, 80) 
+
+PrintTree(root)
+print("Inorder traversal of the given tree")
+inorder(root) 
+  
+print("\nDelete 20")
+root = deleteNode(root, 20) 
+print("Inorder traversal of the modified tree")
+inorder(root) 
+  
+print("\nDelete 30")
+root = deleteNode(root, 30) 
+print("Inorder traversal of the modified tree")
+inorder(root) 
+  
+print("\nDelete 50")
+root = deleteNode(root, 50) 
+print("Inorder traversal of the modified tree")
+inorder(root) 
+  
