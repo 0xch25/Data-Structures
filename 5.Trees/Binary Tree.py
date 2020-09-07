@@ -1,5 +1,18 @@
 '''
 Implementation of Binary Tree and its Operations
+Functions:
+            Insert():inserts the new node wrt Values
+            Inorder():Prints the values of the tree via Inorder Traversal
+            preorder():Prints the values of the tree via preorder Traversal
+            postorder():Prints the values of the tree via postorder Traversal
+            minValueNode(): returns the minimum value in the tree
+            deleteNode(): Remove the given Node
+            FindVal(): returns True if the value is present else False
+            PrintTree(): it is similar to inorder traversal which prints the values in the tree
+
+Reference:
+            1.https://www.tutorialspoint.com/python_data_structure/python_binary_search_tree.htm
+            2.GeeksForGeeks.com
 '''
 class Node:
     def __init__(self, key): 
@@ -22,11 +35,23 @@ def inorder(root):
         print(root.key,end=' ')
         inorder(root.right)
 
+def preorder(root):
+    if root is not None:
+        print(root.key, end=' ')
+        inorder(root.left)
+        inorder(root.right)
+
+def postorder(root):
+    if root is not None:
+        inorder(root.left)
+        inorder(root.right)
+        print(root.key, end=' ')
+
 def minValueNode(node):
     current = node 
     while(current.left is not None):
         current = current.left  
-    return current
+    print("Min values is:",current.key)
 
 def deleteNode(root, key):
     if root is None:
@@ -50,13 +75,25 @@ def deleteNode(root, key):
         root.right = deleteNode(root.right , temp.key)
     return root
 
+def FindVal(root,val):
+    if val<root.key:
+        if root.left is None:
+            return False
+        return FindVal(root.left,val)
+    elif val>root.key:
+        if root.right is None:
+            return False
+        return FindVal(root.right,val)
+    else:
+        return True
+
 def PrintTree(root):
     if root.left:
         PrintTree(root.left)
     print(root.key,end=' ')
     if root.right:
         PrintTree(root.right)
-    print(" ")
+
 """ Let us create following BST 
               50 
            /     \ 
@@ -72,23 +109,43 @@ root = insert(root, 40)
 root = insert(root, 70) 
 root = insert(root, 60) 
 root = insert(root, 80) 
-
 PrintTree(root)
-print("Inorder traversal of the given tree")
-inorder(root) 
-  
+print("\nInorder:")
+inorder(root)
+print("\npreorder:")
+preorder(root)
+print("\npostorder:")
+postorder(root)
 print("\nDelete 20")
 root = deleteNode(root, 20) 
-print("Inorder traversal of the modified tree")
-inorder(root) 
-  
+inorder(root)
 print("\nDelete 30")
 root = deleteNode(root, 30) 
-print("Inorder traversal of the modified tree")
-inorder(root) 
-  
-print("\nDelete 50")
-root = deleteNode(root, 50) 
-print("Inorder traversal of the modified tree")
-inorder(root) 
-  
+#print(" ")
+print(FindVal(root,80))
+print(FindVal(root,10))
+PrintTree(root)
+print(" ")
+minValueNode(root)
+deleteNode(root,40)
+minValueNode(root)
+
+
+'''
+OUTPUT:
+20 30 40 50 60 70 80 
+Inorder:
+20 30 40 50 60 70 80 
+preorder:
+50 20 30 40 60 70 80 
+postorder:
+20 30 40 60 70 80 50 
+Delete 20
+30 40 50 60 70 80 
+Delete 30
+True
+False
+40 50 60 70 80  
+Min values is: 40
+Min values is: 50
+'''
