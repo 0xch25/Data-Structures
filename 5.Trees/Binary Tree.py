@@ -1,3 +1,6 @@
+'''
+Implementation of Binary Tree Using Linked list
+'''
 class Node:
     def __init__(self,data):
         self.left=None
@@ -31,5 +34,17 @@ root = Node(12)
 root.insert(6)
 root.insert(14)
 root.insert(3)
-
+root.insert(0)
+root.insert(20)
+root.insert(25)
 root.PrintTree()
+
+'''
+Output:
+0 3 6 12 14 20 25
+ 
+i.e        12
+        6     14
+      3          20
+    0               25
+'''
