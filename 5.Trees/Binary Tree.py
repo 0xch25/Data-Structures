@@ -9,6 +9,7 @@ Functions:
             deleteNode(): Remove the given Node
             FindVal(): returns True if the value is present else False
             PrintTree(): it is similar to inorder traversal which prints the values in the tree
+            Height():Returns the height of the root recursively
 
 Reference:
             1.https://www.tutorialspoint.com/python_data_structure/python_binary_search_tree.htm
@@ -86,6 +87,12 @@ def FindVal(root,val):
         return FindVal(root.right,val)
     else:
         return True
+def Height(root):
+    if root is None:
+        return -1
+    lheight=Height(root.left)
+    rheight=Height(root.right)
+    return 1+max(lheight,rheight)
 
 def PrintTree(root):
     if root.left:
@@ -108,7 +115,7 @@ root = insert(root, 20)
 root = insert(root, 40) 
 root = insert(root, 70) 
 root = insert(root, 60) 
-root = insert(root, 80) 
+root = insert(root, 80)
 PrintTree(root)
 print("\nInorder:")
 inorder(root)
@@ -129,6 +136,7 @@ print(" ")
 minValueNode(root)
 deleteNode(root,40)
 minValueNode(root)
+print("The Height of the tree is:",Height(root))
 
 
 '''
@@ -148,4 +156,5 @@ False
 40 50 60 70 80  
 Min values is: 40
 Min values is: 50
+The Height of the tree is: 2
 '''
