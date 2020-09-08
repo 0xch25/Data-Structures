@@ -82,3 +82,10 @@ root.right.left=Node(60)
 root.right.right=Node(80)
 '''
 
+'''
+OUTPUT:
+20 30 40 50 60 70 80 
+The Height of the tree is: 2
+The Level Order Traversal of given tree is:
+50 30 70 20 40 60 80 
+'''
