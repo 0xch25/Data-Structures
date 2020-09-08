@@ -29,9 +29,16 @@ def insert(node, key):
 
 def minValueNode(node):
     current = node
-    while (current.left is not None):
+    while current.left is not None:
         current = current.left
+    print(current.key)
     return current
+
+def maxValueNode(node):
+    cur=node
+    while cur.right:
+        cur=cur.right
+    return cur.key
 
 def deleteNode(root, key):
     if root is None:
@@ -55,7 +62,6 @@ def deleteNode(root, key):
     return root
 
 
-# Driver program to test above functions
 """ Let us create following BST 
               50 
            /     \ 
@@ -87,5 +93,6 @@ inorder(root)
 
 print("\nDelete 50")
 root = deleteNode(root, 50)
-print("Inorder traversal of the modified tree")
+print("\nInorder traversal of the modified tree")
 inorder(root)
+print("\nThe max value in given BST is:",maxValueNode(root))
