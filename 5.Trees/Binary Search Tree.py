@@ -1,5 +1,13 @@
 '''
-Implementation of Binary search Tree with its Basic Operations
+Implementation of Binary search Tree with its Basic Operations:
+        inorder():prints the binary Tree
+        insert(): Inserts the value
+        minValueNode(): returns minimum value node (required for Node Deletion function
+        PrintmaxValue(): prints the maximum value
+        PrintminValue(): Prints the minimum value
+        Delete(): Deletes the node
+        search(): Search for value in iterative
+        search2(): Search for value in Recursive
 
 Reference: https://www.geeksforgeeks.org/binary-search-tree-set-2-delete/
            https://github.com/careermonk/data-structures-and-algorithmic-thinking-with-python/blob/master/src/chapter06trees/BST.py
@@ -31,13 +39,17 @@ def minValueNode(node):
     current = node
     while current.left is not None:
         current = current.left
-    print(current.key)
     return current
 
-def maxValueNode(node):
+def PrintmaxValue(node):
     cur=node
     while cur.right:
         cur=cur.right
+    return cur.key
+def PrintminValue(node):
+    cur=node
+    while cur.left:
+        cur=cur.left
     return cur.key
 
 def deleteNode(root, key):
@@ -60,7 +72,26 @@ def deleteNode(root, key):
         root.key = temp.key
         root.right = deleteNode(root.right, temp.key)
     return root
-
+#iterative
+def search(root,val):
+    cur=root
+    while  cur:
+        if val==cur.key:
+            return True
+        if val<cur.key:
+            cur=cur.left
+        else:
+            cur=cur.right
+    return False
+#recursive
+def search2(root,val):
+    if root is None:
+        return False
+    if val<root.key:
+        return search2(root.left,val)
+    elif val>root.key:
+        return search2(root.right,val)
+    return True
 
 """ Let us create following BST 
               50 
@@ -95,4 +126,36 @@ print("\nDelete 50")
 root = deleteNode(root, 50)
 print("\nInorder traversal of the modified tree")
 inorder(root)
-print("\nThe max value in given BST is:",maxValueNode(root))
+print("\nThe max value in given BST is:",PrintmaxValue(root))
+print("The min value in given BST is:",PrintminValue(root))
+print("Iterative Search:")
+print(search(root,10))
+print(search(root,80))
+print("recursive search:")
+print(search2(root,10))
+print(search2(root,40))
+
+'''
+Output:
+        Inorder traversal of the given tree
+        20 30 40 50 60 70 80 
+        Delete 20
+        Inorder traversal of the modified tree
+        30 40 50 60 70 80 
+        Delete 30
+        Inorder traversal of the modified tree
+        40 50 60 70 80 
+        Delete 50
+        
+        Inorder traversal of the modified tree
+        40 60 70 80 
+        The max value in given BST is: 80
+        The min value in given BST is: 40
+        Iterative Search:
+        False
+        True
+        recursive search:
+        False
+        True
+'''
+
