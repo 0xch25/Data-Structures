@@ -15,7 +15,6 @@ h.heappush(heap,-1*100)
 h.heappush(heap,-1*98)
 h.heappush(heap,-1*120)
 h.heappush(heap,-1*70)
-#print
 printheap(heap)
 print(-1*h.heappop(heap)) #pop min element
 print(-1*h.heappushpop(heap,-1*200))
