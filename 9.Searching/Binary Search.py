@@ -14,7 +14,9 @@ def binary_search(arr, x):
             return mid
     return -1
 arr = [1,12,13,2,3,4,5,6,10,40]
-x = 4
+arr.sort()
+print(arr)
+x = 13
 result = binary_search(arr, x)
 if result != -1:
     print("Element is present at index", str(result))
