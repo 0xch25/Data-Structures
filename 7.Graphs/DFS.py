@@ -14,12 +14,14 @@ def dfs(u):
 
 
 adj_list={
-            "A":["B"],
+            "A":["B","C"],
             "B":["A","D","E"],
-            "C":["F"],
+            "C":["A","F","G"],
             "D":["B"],
             "E":["B"],
-            "F":["C"]
+            "F":["C"],
+            "G":["C"]
+
           }
 visited={}
 dfs_trav_output=[]
