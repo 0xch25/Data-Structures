@@ -6,3 +6,10 @@ def optimizedGCD(a,b):
 a=int(input())
 b=int(input())
 print(optimizedGCD(a,b))
+
+'''
+
+a=3918848
+b=1653264
+output:61232
+'''
