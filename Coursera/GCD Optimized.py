@@ -3,8 +3,7 @@ def optimizedGCD(a,b):
         return a
     aprime=a%b
     return optimizedGCD(b,aprime)
-a=int(input())
-b=int(input())
+a,b=map(int,input().split())
 print(optimizedGCD(a,b))
 
 '''
